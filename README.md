@@ -7,7 +7,7 @@
 [rn-textinput]: https://facebook.github.io/react-native/docs/textinput.html#props
 [md-textfield]: https://material.io/guidelines/components/text-fields.html
 
-# rn-material-ui-textfield
+# react-native-text-input
 
 [![npm][npm-badge]][npm-url] [![npm downloads][npm-downloads-badge]][npm-url] [![license][license-badge]][license-url]
 
@@ -35,15 +35,14 @@ Material UI texfield with consistent behaviour on iOS and Android
 ## Installation
 
 ```bash
-yarn add rn-material-ui-textfield
-npm install rn-material-ui-textfield
+npm i https://github.com/arslanafzal077/react-native-text-inputs
 ```
 
 ## Usage
 
 ```javascript
 import React, { Component } from 'react'
-import { TextField, FilledTextField, OutlinedTextField } from 'rn-material-ui-textfield'
+import { TextField, FilledTextField, OutlinedTextField } from 'react-native-text-inputs'
 
 class Example extends Component {
   fieldRef = React.createRef()
