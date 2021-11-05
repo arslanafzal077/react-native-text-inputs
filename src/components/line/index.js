@@ -11,8 +11,11 @@ export default class Line extends PureComponent {
     lineType: 'solid',
     disabledLineType: 'dotted',
 
+    disabledLineColor: '',
+
     disabled: false,
     restricted: false,
+
   }
 
   static propTypes = {
@@ -25,6 +28,9 @@ export default class Line extends PureComponent {
     tintColor: PropTypes.string,
     baseColor: PropTypes.string,
     errorColor: PropTypes.string,
+
+    activeLineColor: PropTypes.string,
+    disabledLineColor: PropTypes.string,
 
     lineWidth: PropTypes.number,
     activeLineWidth: PropTypes.number,
@@ -55,6 +61,8 @@ export default class Line extends PureComponent {
       activeLineWidth,
       disabledLineWidth,
       baseColor,
+      activeLineColor,
+      disabledLineColor,
       tintColor,
       errorColor,
       focusAnimation,
@@ -62,7 +70,7 @@ export default class Line extends PureComponent {
 
     if (disabled) {
       return {
-        borderColor: baseColor,
+        borderColor: disabledLineColor||baseColor,
         borderWidth: disabledLineWidth,
       }
     }
@@ -77,7 +85,7 @@ export default class Line extends PureComponent {
     return {
       borderColor: focusAnimation.interpolate({
         inputRange: [-1, 0, 1],
-        outputRange: [errorColor, baseColor, tintColor],
+        outputRange: [errorColor, disabledLineColor||baseColor, tintColor],
       }),
 
       borderWidth: focusAnimation.interpolate({

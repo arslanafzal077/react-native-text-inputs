@@ -15,7 +15,7 @@ function startAnimation(animation, options, callback) {
 }
 
 function labelStateFromProps(props, state) {
-  let { placeholder, defaultValue,required } = props
+  let { placeholder, defaultValue, required } = props
   let { value, receivedFocus } = state
 
   return !!(placeholder || value || (!receivedFocus && defaultValue))
@@ -53,7 +53,7 @@ export default class TextField extends PureComponent {
     disabledLineType: 'dotted',
 
     disabled: false,
-    required:false,
+    required: false,
   }
 
   static propTypes = {
@@ -83,6 +83,9 @@ export default class TextField extends PureComponent {
     textColor: PropTypes.string,
     baseColor: PropTypes.string,
 
+    activeLineColor: PropTypes.string,
+    disabledLineColor: PropTypes.string,
+
     label: PropTypes.string,
     title: PropTypes.string,
 
@@ -99,7 +102,7 @@ export default class TextField extends PureComponent {
     disabledLineType: Line.propTypes.lineType,
 
     disabled: PropTypes.bool,
-    required:PropTypes.bool,
+    required: PropTypes.bool,
 
     formatText: PropTypes.func,
 
@@ -613,6 +616,8 @@ export default class TextField extends PureComponent {
       disabledLineWidth,
       tintColor,
       baseColor,
+      activeLineColor,
+      disabledLineColor,
       errorColor,
       containerStyle,
       inputContainerStyle: inputContainerStyleOverrides,
@@ -663,6 +668,9 @@ export default class TextField extends PureComponent {
       lineWidth,
       activeLineWidth,
       disabledLineWidth,
+
+      activeLineColor,
+      disabledLineColor,
 
       lineType,
       disabledLineType,
