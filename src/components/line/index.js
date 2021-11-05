@@ -70,7 +70,7 @@ export default class Line extends PureComponent {
 
     if (disabled) {
       return {
-        borderColor: disabledLineColor||baseColor,
+        borderColor: disabledLineColor?disabledLineColor:baseColor,
         borderWidth: disabledLineWidth,
       }
     }
@@ -85,7 +85,7 @@ export default class Line extends PureComponent {
     return {
       borderColor: focusAnimation.interpolate({
         inputRange: [-1, 0, 1],
-        outputRange: [errorColor, disabledLineColor||baseColor, tintColor],
+        outputRange: [errorColor, disabledLineColor?disabledLineColor:baseColor, tintColor],
       }),
 
       borderWidth: focusAnimation.interpolate({
