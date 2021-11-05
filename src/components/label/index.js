@@ -9,6 +9,7 @@ export default class Label extends PureComponent {
     numberOfLines: 1,
     disabled: false,
     restricted: false,
+    required:false
   }
 
   static propTypes = {
@@ -16,6 +17,7 @@ export default class Label extends PureComponent {
 
     disabled: PropTypes.bool,
     restricted: PropTypes.bool,
+    required:PropTypes.bool,
 
     fontSize: PropTypes.number.isRequired,
     activeFontSize: PropTypes.number.isRequired,
@@ -49,6 +51,7 @@ export default class Label extends PureComponent {
       offset,
       disabled,
       restricted,
+      required,
       fontSize,
       activeFontSize,
       contentInset,
@@ -113,6 +116,7 @@ export default class Label extends PureComponent {
       <Animated.View style={[styles.container, containerStyle]}>
         <Animated.Text style={[styles.text, style, textStyle]} {...props}>
           {label}
+          {required&&<Text style={{color:'red'}}>*</Text>}
         </Animated.Text>
       </Animated.View>
     )

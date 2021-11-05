@@ -15,7 +15,7 @@ function startAnimation(animation, options, callback) {
 }
 
 function labelStateFromProps(props, state) {
-  let { placeholder, defaultValue } = props
+  let { placeholder, defaultValue,required } = props
   let { value, receivedFocus } = state
 
   return !!(placeholder || value || (!receivedFocus && defaultValue))
@@ -53,6 +53,7 @@ export default class TextField extends PureComponent {
     disabledLineType: 'dotted',
 
     disabled: false,
+    required:false,
   }
 
   static propTypes = {
@@ -98,6 +99,7 @@ export default class TextField extends PureComponent {
     disabledLineType: Line.propTypes.lineType,
 
     disabled: PropTypes.bool,
+    required:PropTypes.bool,
 
     formatText: PropTypes.func,
 
@@ -483,7 +485,7 @@ export default class TextField extends PureComponent {
   renderLabel(props) {
     let offset = this.labelOffset()
 
-    let { label, fontSize, labelFontSize, labelTextStyle } = this.props
+    let { label, fontSize, labelFontSize, required,labelTextStyle } = this.props
 
     return (
       <Label
@@ -492,6 +494,7 @@ export default class TextField extends PureComponent {
         activeFontSize={labelFontSize}
         offset={offset}
         label={label}
+        required={required}
         style={labelTextStyle}
       />
     )
